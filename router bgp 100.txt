@@ -1,0 +1,17 @@
+router bgp 100
+network 198.123.1.0       //c class
+network 198.123.2.0
+
+neighbor 192.123.3.2 remote-as 200   // Actual ip of 2nd area
+neighbor 192.123.2.2  remote-as 200  // ip of router serial
+exit
+
+
+Router 2 :
+remote-as 100
+
+
+
+router ospf 1
+network 192.168.1.0 0.0.0.255 area 0
+network 192.168.2.0 0.0.0.255 area 0
